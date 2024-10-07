@@ -1,0 +1,143 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
+  font-family: fantasy;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed;
+  top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+footer {
+  position: fixed;
+  bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+footer a {
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.game-table {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.square {
+  width: 100%;
+  height: 100%;
+  background-color: lightgray;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+}
+
+.square:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.game-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.game-buttons button {
+  padding: 10px;
+  width: 100%;
+  height: 60px;
+  background-color: lightgray;
+  color: black;
+  border-radius: 10px;
+  border: none;
+}
+
+.game-buttons button:hover { 
+  cursor: pointer;
+  transform: translateX(-2px) translateY(-2px) scale(1.05);
+  box-shadow: 2px 2px 0 0 lightblue;  
+}
+
+.right-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.githubi {
+  width: 30px;
+  height: 30px;
+}
+
+
+
+@media (max-width: 668px) {
+  header {
+    position: static;
+  }
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .game-table {
+    width: 300px;
+    height: 300px;
+  }
+  .game-buttons button {
+    width: 50%;
+  }
+
+}
