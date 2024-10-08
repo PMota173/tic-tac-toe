@@ -17,35 +17,30 @@
     <div class="main">
       
       <div class="game-table" data-table>
-        <div class="square" data-1></div>
-        <div class="square" data-2></div>
-        <div class="square" data-3></div>
-        <div class="square" data-4></div>
-        <div class="square" data-5></div>
-        <div class="square" data-6></div>
-        <div class="square" data-7></div>
-        <div class="square" data-8></div>
-        <div class="square" data-9></div>
       </div>
-      
+    
+
       <div class="game-buttons">
         <button class="reset">Reset</button>
         <button class="new-game">New Game</button>
         <button class="setup-name">Change Names</button>
       </div>
-      
     </div>
+      
     <div class="right">
       <div class="right-section">
         <h2>Turn:</h2>
         <div class="player-turn">Player 1</div>
-        <div class="player-thing">X</div>
       </div>
-      <div class="right-section" data-score>
+      <div class="right-section">
         <h2>Score:</h2>
         <div>
-          <div class="player" data-player="1">Player 1: 0</div>
-          <div class="player" data-player="2">Player 2: 0</div>
+          <div>
+            <div class="player1">Player 1: </div><span class="scorePlayer1"> 0</span>
+          </div>
+          <div>
+            <div class="player2">Player 2: </div><span class="scorePlayer2"> 0</span>
+          </div>  
         </div>
       </div>
     </div>
@@ -55,6 +50,6 @@
     <p><a href="https://github.com/PMota173" target="_blank">PMota173</a></p>
     <img class="githubi" src="img/github-mark.png" alt="">
   </footer>
-  <script type="module" src="script.js"></script>
+  <script type="module" src="script.js" defer></script>
 </body>
 </html>
