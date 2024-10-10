@@ -4,16 +4,29 @@ export default function board() {
 
     function createBoard () {
         table.innerHTML = `
-            <div class="square" data-="1"></div>
-            <div class="square" data-="2"></div>
-            <div class="square" data-="3"></div>
-            <div class="square" data-="4"></div>
-            <div class="square" data-="5"></div>
-            <div class="square" data-="6"></div>
-            <div class="square" data-="7"></div>
-            <div class="square" data-="8"></div>
-            <div class="square" data-="9"></div>
+            <div class="square red" data-row="0" data-column="0"></div>
+            <div class="square red" data-row="0" data-column="1"></div>
+            <div class="square red" data-row="0" data-column="2"></div>
+            <div class="square red" data-row="1" data-column="0"></div>
+            <div class="square red" data-row="1" data-column="1"></div>
+            <div class="square red" data-row="1" data-column="2"></div>
+            <div class="square red" data-row="2" data-column="0"></div>
+            <div class="square red" data-row="2" data-column="1"></div>
+            <div class="square red" data-row="2" data-column="2"></div>
             `;
+    }
+    
+    function createGameMatrix() {
+        // creates a 3x3 matrix for the game
+
+        const matrix = [];
+        for (let i = 0; i < 3; i++) {
+            matrix[i] = [];
+            for (let j = 0; j < 3; j++) {
+                matrix[i][j] = '';
+            }
+        }
+        return matrix;
     }
 
     function deleteBoard () {
@@ -24,6 +37,7 @@ export default function board() {
         table,
         createBoard,
         deleteBoard,
+        createGameMatrix
     }
 }
         

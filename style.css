@@ -101,10 +101,27 @@ footer a {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bolder;
+}
+
+
+.red:hover{
+  background-color: rgba(233, 74, 74, 0.400);
+}
+
+.blue:hover{
+  background-color: rgb(119, 127, 240, 0.400);
+}
+
+.red-placed {
+  color: rgba(233, 74, 74);
+}
+
+.blue-placed {
+  color: rgb(119, 127, 240);
 }
 
 .square:hover {
-  background-color: lightblue;
   cursor: pointer;
 }
 
@@ -177,3 +194,6 @@ footer a {
 
 }
 
+.scorePlayer1, .scorePlayer2 {
+  margin-left: 5px;
+}
