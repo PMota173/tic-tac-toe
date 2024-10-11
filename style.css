@@ -1,6 +1,5 @@
 body {
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
@@ -11,6 +10,7 @@ body {
 
 * {
   box-sizing: border-box;
+  border: 1px solid black;
 }
 
 header {
@@ -18,7 +18,7 @@ header {
   flex-direction: column;
   display: flex;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 header h3 {
@@ -46,7 +46,6 @@ footer a {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   align-items: center;
-  justify-content: center;
   gap: 20px;
 }
 
@@ -196,6 +195,12 @@ footer a {
   }
   .game-buttons button {
     width: 50%;
+  }
+
+  footer {
+    width: 20px;
+    height: 20px;
+    display: none;
   }
 
 }
