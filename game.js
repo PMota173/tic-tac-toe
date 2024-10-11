@@ -65,12 +65,12 @@ export default function game() {
                             if(checkForWin()) {
                                 alert(name2 + ' wins the game!');
                                 setTimeout(() => {
-                                    game().resetGame();
+                                    resetGame();
                                 }, 500);
                             }
                             else {
                                 setTimeout(() => {
-                                    game().resetGame();
+                                    resetGame();
                                 }, 500);
                             }
                         }
