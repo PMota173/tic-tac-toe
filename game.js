@@ -20,6 +20,7 @@ export default function game() {
         // and adds event listeners to the squares
         
         board().createBoard();
+
         let matrixGame = board().createGameMatrix();
         
         const squares = document.querySelectorAll('.square');
@@ -38,21 +39,66 @@ export default function game() {
                     }
                     changeTurn(name1,name2,squares);
                     const winner = checkWinner(matrixGame);
+                    const draw = matrixGame.every(row => row.every(cell => cell !== ''));
 
                     if (winner) {
                         alert(winner + ' wins!');
                         if (winner === 'X') {
                             player1score.innerHTML = parseInt(player1score.innerHTML) + 1;
                             playersTurn.innerHTML = name2 + '\'s turn';
+
+                            if(checkForWin()) {
+                                alert(name1 + ' wins the game!');
+                                setTimeout(() => {
+                                    resetGame();
+                                }, 500);
+                            }
+                            else {
+                                setTimeout(() => {
+                                    resetGame();
+                                }, 500);
+                            }
                         } else {
                             player2score.innerHTML = parseInt(player2score.innerHTML) + 1;
                             playersTurn.innerHTML = name1 + '\'s turn';
+
+                            if(checkForWin()) {
+                                alert(name2 + ' wins the game!');
+                                setTimeout(() => {
+                                    resetGame();
+                                }, 500);
+                            }
+                            else {
+                                setTimeout(() => {
+                                    resetGame();
+                                }, 500);
+                            }
                         }
+                    }
+                    else if (draw) {
+                        alert('It\'s a draw!');
+                        setTimeout(() => {
+                            resetGame();
+                        }, 500);
                     }
                 }
             });
         });
     }
+
+    function checkForWin() {
+        // checks if one of the players has 3 points
+        // returns the winner or false
+
+        if (player1score.innerHTML === '3') {
+            return name1;
+        }
+        if (player2score.innerHTML === '3') {
+            return name2;
+        }
+
+    }
+
 
     function checkWinner(matrixGame) {
         // checks if there is a winner
@@ -102,17 +148,23 @@ export default function game() {
         // deletes the board
         // and starts a new game
 
+        const squares = document.querySelectorAll('.square');
+        squares.forEach(square => {
+            square.removeEventListener('click', () => {
+                console.log('clicked');
+            });
+        });
+
         board().deleteBoard();
         startGame();
         console.log('new game');
     }
 
 
-
     const resetButton = document.querySelector('.reset');
 
     resetButton.addEventListener('click', () => {
-        game().resetGame();
+        resetGame();
     });
 
     const newGameButton = document.querySelector('.new-game');
@@ -133,11 +185,16 @@ export default function game() {
         name1 = prompt('Enter player 1 name');
         name2 = prompt('Enter player 2 name');
 
+        while (name1 === name2 ) {
+            alert('Names must be different!');
+            name1 = prompt('Enter player 1 name');
+            name2 = prompt('Enter player 2 name');
+        }
+
         updateTurn(name1,name2);
         
         player1Name.innerHTML = name1 + ':';
         player2Name.innerHTML = name2 + ':';
-
 
     });
 
