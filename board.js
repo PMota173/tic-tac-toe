@@ -4,15 +4,15 @@ export default function board() {
 
     function createBoard () {
         table.innerHTML = `
-            <div class="square red" data-row="0" data-column="0"></div>
-            <div class="square red" data-row="0" data-column="1"></div>
-            <div class="square red" data-row="0" data-column="2"></div>
-            <div class="square red" data-row="1" data-column="0"></div>
-            <div class="square red" data-row="1" data-column="1"></div>
-            <div class="square red" data-row="1" data-column="2"></div>
-            <div class="square red" data-row="2" data-column="0"></div>
-            <div class="square red" data-row="2" data-column="1"></div>
-            <div class="square red" data-row="2" data-column="2"></div>
+            <div class="square" data-row="0" data-column="0"></div>
+            <div class="square" data-row="0" data-column="1"></div>
+            <div class="square" data-row="0" data-column="2"></div>
+            <div class="square" data-row="1" data-column="0"></div>
+            <div class="square" data-row="1" data-column="1"></div>
+            <div class="square" data-row="1" data-column="2"></div>
+            <div class="square" data-row="2" data-column="0"></div>
+            <div class="square" data-row="2" data-column="1"></div>
+            <div class="square" data-row="2" data-column="2"></div>
             `;
     }
     

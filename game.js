@@ -39,18 +39,22 @@ export default function game() {
                     }
                     changeTurn(name1,name2,squares);
                     const winner = checkWinner(matrixGame);
+
+                    // checks if the game is a draw
                     const draw = matrixGame.every(row => row.every(cell => cell !== ''));
 
                     if (winner) {
-                        alert(winner + ' wins!');
                         if (winner === 'X') {
+                            alert(name1 + ' wins!');
+                            // updates the score
                             player1score.innerHTML = parseInt(player1score.innerHTML) + 1;
                             playersTurn.innerHTML = name2 + '\'s turn';
 
+                            // check if the game is over
                             if(checkForWin()) {
                                 alert(name1 + ' wins the game!');
                                 setTimeout(() => {
-                                    resetGame();
+                                    newGame();
                                 }, 500);
                             }
                             else {
@@ -58,10 +62,14 @@ export default function game() {
                                     resetGame();
                                 }, 500);
                             }
+                            
                         } else {
+                            alert(name2 + ' wins!');
+                            // updates the score
                             player2score.innerHTML = parseInt(player2score.innerHTML) + 1;
                             playersTurn.innerHTML = name1 + '\'s turn';
 
+                            // check if the game is over
                             if(checkForWin()) {
                                 alert(name2 + ' wins the game!');
                                 setTimeout(() => {
@@ -75,6 +83,7 @@ export default function game() {
                             }
                         }
                     }
+
                     else if (draw) {
                         alert('It\'s a draw!');
                         setTimeout(() => {
@@ -83,7 +92,11 @@ export default function game() {
                     }
                 }
             });
+
         });
+
+        changeBackground(squares);
+
     }
 
     function checkForWin() {
@@ -128,36 +141,21 @@ export default function game() {
     }
 
     function resetGame() {
-        // removes event listeners from the squares
         // deletes the board
         // and starts a new game
-
-        const squares = document.querySelectorAll('.square');
-        squares.forEach(square => {
-            square.removeEventListener('click', () => {
-                console.log('clicked');
-            });
-        });
+        // without changing the score
 
         board().deleteBoard();
         startGame();
-        console.log('reset');
     }
 
     function newGame() {
         // deletes the board
         // and starts a new game
-
-        const squares = document.querySelectorAll('.square');
-        squares.forEach(square => {
-            square.removeEventListener('click', () => {
-                console.log('clicked');
-            });
-        });
+        // with the score reset
 
         board().deleteBoard();
         game().startGame();
-        console.log('new game');
     }
 
 
@@ -170,7 +168,7 @@ export default function game() {
     const newGameButton = document.querySelector('.new-game');
 
     newGameButton.addEventListener('click', () => {
-        game().newGame();
+        newGame();
     });
 
     const changeNamesButton = document.querySelector('.setup-name');
@@ -204,22 +202,32 @@ export default function game() {
 
         if (playersTurn.innerHTML === player1Name + '\'s turn') {
             playersTurn.innerHTML = player2Name + '\'s turn';
-
-            squares.forEach(square => {
-                square.classList.remove('red')
-                square.classList.add('blue')
-            });
         } else {
             playersTurn.innerHTML = player1Name + '\'s turn';
+        }
+        changeBackground(squares);
+    }
+
+    function changeBackground(squares) {
+        // changes the background color
+        // when the player's turn is changed
+        if (playersTurn.innerHTML === name1 + '\'s turn') {
             squares.forEach(square => {
                 square.classList.remove('blue')
                 square.classList.add('red')
+            });
+        } 
+        else {
+            squares.forEach(square => {
+                square.classList.remove('red')
+                square.classList.add('blue')
             });
         }
     }
 
     function updateTurn(player1Name,player2Name) {
         // updates the player's turn message
+        // when the names are changed
         if (playersTurn.innerHTML === player1Name + '\'s turn') {
             playersTurn.innerHTML = player1Name + '\'s turn';
         } else {
