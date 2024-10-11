@@ -65,12 +65,12 @@ export default function game() {
                             if(checkForWin()) {
                                 alert(name2 + ' wins the game!');
                                 setTimeout(() => {
-                                    game().resetGame();
+                                    newGame();
                                 }, 500);
                             }
                             else {
                                 setTimeout(() => {
-                                    game().resetGame();
+                                    resetGame();
                                 }, 500);
                             }
                         }
@@ -156,7 +156,7 @@ export default function game() {
         });
 
         board().deleteBoard();
-        startGame();
+        game().startGame();
         console.log('new game');
     }
 
